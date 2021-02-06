@@ -103,7 +103,7 @@ public class JFlood extends JFrame {
 
 	private boolean checkWinning() {
 		for (BoardItem i : boardItems) {
-			if (i.color != boardItems.get(0).color) {
+			if (i.getColor() != boardItems.get(0).getColor()) {
 				return false;
 			}
 		}
@@ -122,7 +122,7 @@ public class JFlood extends JFrame {
 				// debug
 				System.out.println("Moves: " + moves);
 
-				floodFill(0, 0, boardItems.get(0).color, i.color);
+				floodFill(0, 0, boardItems.get(0).getColor(), i.getColor());
 				drawingPanel.repaint();
 
 				if (checkWinning()) {
@@ -147,7 +147,7 @@ public class JFlood extends JFrame {
 	}
 
 	private void floodFill(int i, int j, int oldColor, int newColor) {
-		if (boardItems.get(j * boardSize + i).color != oldColor || newColor == oldColor) {
+		if (boardItems.get(j * boardSize + i).getColor() != oldColor || newColor == oldColor) {
 			return;
 		}
 
@@ -177,7 +177,7 @@ public class JFlood extends JFrame {
 			super.paintComponent(g);
 
 			for (BoardItem i : boardItems) {
-				g.setColor(colors.get(i.color));
+				g.setColor(colors.get(i.getColor()));
 				g.fillRect(i.x, i.y, i.width, i.height);
 			}
 		}
