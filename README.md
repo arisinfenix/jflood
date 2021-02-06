@@ -1,6 +1,8 @@
 # JFlood
 Just another flood it clone written in Java.
 
+![](./share/screenshot.png)
+
 ## Running
 ```
 make
