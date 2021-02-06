@@ -10,9 +10,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-public class JFlood extends JFrame implements Runnable {
+public class JFlood extends JFrame {
 	private ArrayList<BoardItem> boardItems = new ArrayList<BoardItem>();
 	private ArrayList<Color> colors = new ArrayList<Color>();
 	private DrawingPanel drawingPanel;
@@ -23,8 +22,7 @@ public class JFlood extends JFrame implements Runnable {
 	private boolean loose;
 	private int moves;
 
-	@Override
-	public void run() {
+	public JFlood() {
 		setTitle("JFlood");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -60,10 +58,6 @@ public class JFlood extends JFrame implements Runnable {
 		initColors();
 		initBoardItems();
 		startNewGame();
-	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new JFlood());
 	}
 
 	private void initColors() {
@@ -187,5 +181,9 @@ public class JFlood extends JFrame implements Runnable {
 				g.fillRect(i.x, i.y, i.width, i.height);
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		new JFlood();
 	}
 }
